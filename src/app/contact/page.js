@@ -1,3 +1,4 @@
+"use client"
 import Contact from '@/components/Contact'
 import Hero from '@/components/Hero'
 import React from 'react'
