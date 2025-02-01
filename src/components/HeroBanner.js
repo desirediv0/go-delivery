@@ -42,7 +42,7 @@ export default function HeroBanner() {
   }, []);
 
   const scrollToNext = () => {
-    const aboutSection = document.getElementById('about');
+    const aboutSection = document.getElementById('hero');
     aboutSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -51,7 +51,7 @@ export default function HeroBanner() {
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute inset-0 bg-black/70 z-10" />
-        <Image src="/banner.png" fill className='w-full h-full' alt="Banner background"/>
+        <Image src="/banner.png" fill className='w-full h-4/5 md:h-full object-cover' alt="Banner background"/>
       </div>
 
       {/* Animated Particles */}
@@ -90,7 +90,7 @@ export default function HeroBanner() {
           className="space-y-8"
         >
           <motion.h1 
-            className="text-6xl md:text-8xl font-bold text-white mb-6"
+            className="text-5xl md:text-8xl font-bold text-white mb-6"
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -120,15 +120,15 @@ export default function HeroBanner() {
             Go Green India with Go Delivery.
           </motion.p>
 
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-6 justify-center"
+                   <motion.div 
+            className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center w-full px-4 md:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <Link href="/contact">
+            <Link href="/contact" className="w-full md:w-auto">
               <motion.button 
-                className="px-12 py-5 bg-[#5cdee2] text-black text-lg font-semibold rounded-full flex items-center justify-center gap-2 group hover:bg-white transition-all duration-300"
+                className="w-full md:w-auto px-6 md:px-12 py-4 md:py-5 bg-[#5cdee2] text-black text-base md:text-lg font-semibold rounded-full flex items-center justify-center gap-2 group hover:bg-white transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -142,13 +142,13 @@ export default function HeroBanner() {
                     duration: 0.6 
                   }}
                 >
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 md:w-5 h-4 md:h-5" />
                 </motion.span>
               </motion.button>
             </Link>
-            <Link href="/about">
+            <Link href="/about" className="w-full md:w-auto">
               <motion.button 
-                className="px-12 py-5 bg-transparent border-2 border-white text-white text-lg font-semibold rounded-full hover:bg-white/10 transition-all duration-300"
+                className="w-full md:w-auto px-6 md:px-12 py-4 md:py-5 bg-transparent border-2 border-white text-white text-base md:text-lg font-semibold rounded-full hover:bg-white/10 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
