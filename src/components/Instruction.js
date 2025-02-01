@@ -36,45 +36,47 @@ export default function HeroSection() {
 
       <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="relative"
-          >
-            <div className="relative aspect-[1/2] max-w-[300px] mx-auto lg:mx-0">
-              {/* Glowing effect behind phone */}
-              <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/30 via-purple-500/30 to-blue-500/30 rounded-[3rem] blur-2xl" />
-
-              {/* Floating elements */}
-              <motion.div
-                animate={{
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-                className="absolute inset-0"
-              >
-                {/* <Image
-                  src="/phone.png"
-                  alt="Go Delivery App Interface"
-                  fill
-                  className="object-contain z-10"
-                  priority
-                /> */}
-              </motion.div>
-
-              {/* Animated rings */}
-              <div className="absolute inset-0 -z-10">
-                <div className="absolute inset-0 border-2 border-cyan-500/20 rounded-[3rem] animate-pulse" />
-                <div className="absolute inset-4 border-2 border-purple-500/20 rounded-[2.5rem] animate-pulse animation-delay-500" />
-                <div className="absolute inset-8 border-2 border-blue-500/20 rounded-[2rem] animate-pulse animation-delay-1000" />
-              </div>
-            </div>
-          </motion.div>
+                      <div className="flex items-center justify-center w-full">
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="relative  w-full max-w-[300px] mx-auto"
+                  >
+                    <div className="relative aspect-[1/2]">
+                      {/* Glowing effect behind phone */}
+                      <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/30 via-purple-500/30 to-blue-500/30 rounded-[3rem] blur-2xl" />
+                      
+                      {/* Floating elements */}
+                      <motion.div
+                        animate={{
+                          y: [0, -10, 0],
+                        }}
+                        transition={{
+                          duration: 4,
+                          repeat: Number.POSITIVE_INFINITY,
+                          ease: "easeInOut",
+                        }}
+                        className="absolute inset-0 flex items-center justify-center"
+                      >
+                        {/* <Image
+                          src="/phone.png"
+                          alt="Go Delivery App Interface"
+                          fill
+                          className="object-contain z-10"
+                          priority
+                        /> */}
+                      </motion.div>
+                      
+                      {/* Animated rings */}
+                      <div className="absolute inset-0 -z-10">
+                        <div className="absolute inset-0 border-2 border-cyan-500/20 rounded-[3rem] animate-pulse" />
+                        <div className="absolute inset-4 border-2 border-purple-500/20 rounded-[2.5rem] animate-pulse animation-delay-500" />
+                        <div className="absolute inset-8 border-2 border-blue-500/20 rounded-[2rem] animate-pulse animation-delay-1000" />
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
 
           <motion.div
             initial={{ opacity: 0, x: 20 }}
