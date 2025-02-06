@@ -50,8 +50,8 @@ export default function HeroBanner() {
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full">
-        <div className="absolute inset-0 bg-black/70 z-10" />
-        <Image src="/banner.png" fill className='w-full h-4/5 md:h-full object-cover' alt="Banner background"/>
+        <div className="absolute inset-0 bg-black/20 z-10" />
+        <Image src="/4.jpg" fill className='w-full h-4/5 md:h-full' alt="Banner background"/>
       </div>
 
       {/* Animated Particles */}
@@ -82,7 +82,7 @@ export default function HeroBanner() {
       </div>
 
       {/* Content */}
-      <div className="relative z-30 text-center px-4 max-w-6xl mx-auto">
+      {/* <div className="relative z-30 text-center px-4 max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -157,7 +157,7 @@ export default function HeroBanner() {
             </Link>
           </motion.div>
         </motion.div>
-      </div>
+      </div> */}
 
       {/* Scroll Indicator */}
       <motion.button
