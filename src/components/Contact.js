@@ -57,7 +57,7 @@ export default function Contact() {
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-200/50 to-blue-200/50 rounded-2xl blur-xl" />
 
               {/* Card content */}
-              <div className="relative h-full p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200 shadow-lg">
+              <div className="relative h-full p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200 shadow-lg">
                 <h4 className="text-xl font-semibold text-gray-900 mb-6">Contact Information</h4>
 
                 <div className="space-y-6">
@@ -68,10 +68,16 @@ export default function Contact() {
                     <div>
                       <p className="text-gray-600">Email</p>
                       <a
-                        href="mailto:hello@evmobility.com"
+                        href="mailto:godeliveryrental@gmail.com"
                         className="text-gray-900 hover:text-cyan-600 transition-colors"
                       >
-                        hello@evmobility.com
+                        godeliveryrental@gmail.com 
+                      </a>
+                      <a
+                        href="mailto:godeliverymangement@gmail.com"
+                        className="text-gray-900 hover:text-cyan-600 transition-colors block"
+                      >
+                        godeliverymangement@gmail.com
                       </a>
                     </div>
                   </div>
@@ -82,8 +88,11 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-gray-600">Phone</p>
-                      <a href="tel:+1(555)123-4567" className="text-gray-900 hover:text-cyan-600 transition-colors">
-                        +1 (555) 123-4567
+                      <a href="tel:+919625977768" className="text-gray-900 hover:text-cyan-600 transition-colors">
+                      +91 9625977768
+                      </a>
+                      <a href="tel:+919625977769" className="text-gray-900 hover:text-cyan-600 transition-colors block">
+                      +91 9625977769
                       </a>
                     </div>
                   </div>
@@ -95,9 +104,7 @@ export default function Contact() {
                     <div>
                       <p className="text-gray-600">Address</p>
                       <p className="text-gray-900">
-                        123 Innovation Drive,
-                        <br />
-                        Tech City, TC 12345
+                        Dwarka Mor
                       </p>
                     </div>
                   </div>

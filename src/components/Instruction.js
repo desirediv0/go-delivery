@@ -17,7 +17,7 @@ export default function HeroSection() {
     },
     {
       icon: <Gauge className="w-8 h-8" />,
-      title: "100-120Km Range",
+      title: "Quick & Fast Service",
     },
     {
       icon: <PiggyBank className="w-8 h-8" />,

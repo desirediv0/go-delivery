@@ -5,9 +5,9 @@ import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 
 const socialLinks = [
-  { icon: Facebook, href: '#' },
+  { icon: Facebook, href: 'https://www.facebook.com/share/1APbN9TUFJ/' },
   { icon: Twitter, href: '#' },
-  { icon: Instagram, href: '#' },
+  { icon: Instagram, href: 'https://www.instagram.com/go_delivery777?igsh=YW95eXY0Z2E1cGl1' },
   { icon: Linkedin, href: '#' },
 ];
 

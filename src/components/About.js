@@ -5,9 +5,9 @@ import { Leaf, Battery, Zap } from 'lucide-react';
 import Image from 'next/image';
 
 const stats = [
-  { label: 'CO₂ Reduced', value: '50K+', icon: Leaf },
-  { label: 'Battery Swaps', value: '100K+', icon: Battery },
-  { label: 'Green Miles', value: '1M+', icon: Zap },
+  { label: 'Comfort in Ride', value: '50K+', icon: Leaf },
+  { label: 'Easy Battery Swap', value: '100K+', icon: Battery },
+  { label: 'Charging Point', value: '1M+', icon: Zap },
 ];
 
 export default function About() {
@@ -67,8 +67,9 @@ export default function About() {
                     >
                       <Icon className="w-10 h-10 text-[#5cdee2]" />
                     </motion.div>
-                    <h3 className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</h3>
-                    <p className="text-gray-600 text-lg">{stat.label}</p>
+                    <h3 className="text-3xl font-bold text-gray-900 mb-2">{stat.label}</h3>
+                    {/* <h3 className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</h3> */}
+                    {/* <p className="text-gray-600 text-lg">{stat.label}</p> */}
                   </div>
                 </motion.div>
               );
@@ -101,15 +102,13 @@ export default function About() {
                 Our Vision for the Future
               </h3>
               <p className="text-xl text-gray-600 leading-relaxed">
-                We envision a world where sustainable mobility is the norm, not the exception. 
-                Through innovative technology and commitment to excellence, we're making this vision 
-                a reality.
+              At GoDelivery Rental, we make it easy for businesses to get the vehicles they need for deliveries without the hassle of owning them. Whether you run a restaurant, a retail store, or an online shop, we offer scooter rentals that help you deliver faster and more efficiently.
               </p>
               <ul className="space-y-6">
                 {[
-                  'Zero-emission transportation solutions',
+                  'No License Required',
                   'Smart city integration',
-                  'Accessible mobility for all',
+                  'Mobile Stand',
                   'Sustainable energy ecosystem',
                 ].map((item, index) => (
                   <motion.li 
