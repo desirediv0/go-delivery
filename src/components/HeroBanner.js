@@ -56,17 +56,17 @@ export default function HeroBanner() {
           <Image
             src="/4.jpg"
             fill
-            className='w-full h-full object-cover'
+            className='w-full h-full object-fill'
             alt="Banner background"
             priority
           />
         </div>
         {/* Mobile image */}
-        <div className="block md:hidden">
+        <div className="block md:hidden ">
           <Image
             src="/1.jpg"
             fill
-            className='w-full h-full object-cover'
+            className='w-full h-full object-fill '
             alt="Banner background"
             priority
           />

@@ -90,7 +90,7 @@ export default function About() {
                 alt="Electric Vehicle"
                 width={800}
                 height={800}
-                className="w-full h-[800px] object-cover rounded-3xl shadow-xl"
+                className="w-full md:h-[800px] object-cover rounded-3xl shadow-xl"
               />
             </div>
             <div className="space-y-8">
