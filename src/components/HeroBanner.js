@@ -49,9 +49,29 @@ export default function HeroBanner() {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
+      {/* Video Background */}
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute inset-0 bg-black/20 z-10" />
-        <Image src="/4.jpg" fill className='w-full h-4/5 md:h-full' alt="Banner background"/>
+        {/* Large screen image */}
+        <div className="hidden md:block">
+          <Image
+            src="/4.jpg"
+            fill
+            className='w-full h-full object-cover'
+            alt="Banner background"
+            priority
+          />
+        </div>
+        {/* Mobile image */}
+        <div className="block md:hidden">
+          <Image
+            src="/1.jpg"
+            fill
+            className='w-full h-full object-cover'
+            alt="Banner background"
+            priority
+          />
+        </div>
       </div>
 
       {/* Animated Particles */}
@@ -163,10 +183,10 @@ export default function HeroBanner() {
       <motion.button
         onClick={scrollToNext}
         className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-white z-30"
-        animate={{ 
+        animate={{
           y: [0, 10, 0],
         }}
-        transition={{ 
+        transition={{
           duration: 1.5,
           repeat: Infinity,
           ease: "easeInOut"
