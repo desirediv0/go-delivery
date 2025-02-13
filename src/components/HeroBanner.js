@@ -49,7 +49,6 @@ export default function HeroBanner() {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
-      {/* Video Background */}
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute inset-0 bg-black/20 z-10" />
         {/* Large screen image */}
