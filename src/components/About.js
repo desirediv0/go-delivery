@@ -81,7 +81,7 @@ export default function About() {
           >
             <div className="relative">
               <motion.div
-                className="absolute inset-0 bg-[#5cdee2]/20 rounded-3xl"
+                className="absolute inset-0 bg-[#5cdee2]/20 rounded-md md:rounded-3xl"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               />
@@ -90,7 +90,7 @@ export default function About() {
                 alt="Electric Vehicle"
                 width={800}
                 height={800}
-                className="w-full md:h-[800px] object-cover rounded-3xl shadow-xl"
+                className="w-full md:h-[800px] object-cover rounded-md md:rounded-3xl shadow-xl"
               />
             </div>
             <div className="space-y-8">
