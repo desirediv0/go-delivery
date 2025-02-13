@@ -71,7 +71,7 @@ export default function Contact() {
                         href="mailto:godeliveryrental@gmail.com"
                         className="text-gray-900 hover:text-cyan-600 transition-colors"
                       >
-                        godeliveryrental@gmail.com 
+                        godeliveryrental@gmail.com
                       </a>
                       <a
                         href="mailto:godeliverymangement@gmail.com"
@@ -89,10 +89,10 @@ export default function Contact() {
                     <div>
                       <p className="text-gray-600">Phone</p>
                       <a href="tel:+919625977768" className="text-gray-900 hover:text-cyan-600 transition-colors">
-                      +91 9625977768
+                        +91 9625977768
                       </a>
                       <a href="tel:+919625977769" className="text-gray-900 hover:text-cyan-600 transition-colors block">
-                      +91 9625977769
+                        +91 9625977769
                       </a>
                     </div>
                   </div>
@@ -104,7 +104,10 @@ export default function Contact() {
                     <div>
                       <p className="text-gray-600">Address</p>
                       <p className="text-gray-900">
-                        Dwarka Mor
+                        Plot No. 9, Sulahkul Vihar,<br />
+                        Old Palam Road,<br />
+                        New Delhi - 110078<br />
+                        <span className="text-gray-600 text-sm">Landmark: Sulahkul Mandir</span>
                       </p>
                     </div>
                   </div>
