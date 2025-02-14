@@ -48,7 +48,7 @@ const features = [
 export default function Features() {
     return (
         <section className="py-20 bg-gradient-to-b from-white to-cyan-50">
-            <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto px-4">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -73,17 +73,20 @@ export default function Features() {
                         viewport={{ once: true }}
                         className="order-2 lg:order-1"
                     >
-                        <div className="relative aspect-[4/4] rounded-2xl overflow-hidden shadow-2xl p-4">
+                        <div className="relative w-full h-[400px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
                             <Image
                                 src="/2.jpg"
                                 alt="Delivery Features"
                                 fill
-                                className="object-cover hover:scale-105 transition-all duration-500"
+                                className="object-contain md:object-cover w-full h-full"
                                 quality={100}
-                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 priority
+                                style={{
+                                    objectPosition: 'center',
+                                }}
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                         </div>
                     </motion.div>
 
