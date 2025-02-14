@@ -29,7 +29,7 @@ export default function HeroBanner() {
     <div className="relative w-full h-[75vh] md:h-screen overflow-hidden">
       {/* Background Container */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 bg-black/20 z-10" />
         {/* Desktop Image */}
         <div className="hidden md:block">
           <Image
