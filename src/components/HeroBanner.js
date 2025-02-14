@@ -1,8 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 
 export default function HeroBanner() {
@@ -11,7 +10,7 @@ export default function HeroBanner() {
   useEffect(() => {
     const generateParticles = () => {
       return [...Array(20)].map(() => ({
-        x: Math.random() * 100, // Use percentage instead of pixel values
+        x: Math.random() * 100,
         y: Math.random() * 100,
         nextX: Math.random() * 100,
         nextY: Math.random() * 100
