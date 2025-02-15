@@ -45,6 +45,7 @@ export default function Contact() {
 
         <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Contact Information */}
+
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -57,51 +58,72 @@ export default function Contact() {
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-200/50 to-blue-200/50 rounded-2xl blur-xl" />
 
               {/* Card content */}
-              <div className="relative h-full p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200 shadow-lg">
-                <h4 className="text-xl font-semibold text-gray-900 mb-6">Contact Information</h4>
+              <div className="relative h-full p-8 rounded-2xl bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg">
+                <h4 className="text-2xl font-bold text-gray-900 mb-8">Contact Information</h4>
 
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center shadow-lg">
+                <div className="space-y-8">
+                  {/* Email Section */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center shadow-lg shrink-0">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
-                    <div>
-                      <p className="text-gray-600">Email</p>
-                      <a
-                        href="mailto:godeliveryrental@gmail.com"
-                        className="text-gray-900 hover:text-cyan-600 transition-colors"
-                      >
-                        godeliveryrental@gmail.com
-                      </a>
+                    <div className="space-y-1">
+                      <p className="text-gray-600 font-medium">Email</p>
+                      <div className="space-y-1">
+                        <a
+                          href="mailto:support@godelivery.com"
+                          className="block text-gray-900 hover:text-cyan-600 transition-colors"
+                        >
+                          Support@godelivery.com
+                        </a>
+                        <a
+                          href="mailto:management@godelivery.com"
+                          className="block text-gray-900 hover:text-cyan-600 transition-colors"
+                        >
+                          Management@godelivery.com
+                        </a>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center shadow-lg">
+                  {/* Phone Section */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center shadow-lg shrink-0">
                       <Phone className="w-6 h-6 text-white" />
                     </div>
-                    <div>
-                      <p className="text-gray-600">Phone</p>
-                      <a href="tel:+919625977768" className="text-gray-900 hover:text-cyan-600 transition-colors">
-                        +91 9625977768
-                      </a>
-                      <a href="tel:+919625977769" className="text-gray-900 hover:text-cyan-600 transition-colors block">
-                        +91 9625977769
-                      </a>
+                    <div className="space-y-1">
+                      <p className="text-gray-600 font-medium">Phone</p>
+                      <div className="space-y-1">
+                        <a
+                          href="tel:+919625977768"
+                          className="block text-gray-900 hover:text-cyan-600 transition-colors"
+                        >
+                          +91 9625977768
+                        </a>
+                        <a
+                          href="tel:+919625977769"
+                          className="block text-gray-900 hover:text-cyan-600 transition-colors"
+                        >
+                          +91 9625977769
+                        </a>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center shadow-lg">
+                  {/* Address Section */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center shadow-lg shrink-0">
                       <MapPin className="w-6 h-6 text-white" />
                     </div>
-                    <div>
-                      <p className="text-gray-600">Address</p>
-                      <p className="text-gray-900">
+                    <div className="space-y-1">
+                      <p className="text-gray-600 font-medium">Address</p>
+                      <p className="text-gray-900 leading-relaxed">
                         Plot No. 9, Sulahkul Vihar,<br />
                         Old Palam Road,<br />
                         New Delhi - 110078<br />
-                        <span className="text-gray-600 text-sm">Landmark: Sulahkul Mandir</span>
+                        <span className="text-gray-600 text-sm mt-1 block">
+                          Landmark: Sulahkul Mandir
+                        </span>
                       </p>
                     </div>
                   </div>
