@@ -73,12 +73,6 @@ export default function Contact() {
                       >
                         godeliveryrental@gmail.com
                       </a>
-                      <a
-                        href="mailto:godeliverymangement@gmail.com"
-                        className="text-gray-900 hover:text-cyan-600 transition-colors block"
-                      >
-                        godeliverymangement@gmail.com
-                      </a>
                     </div>
                   </div>
 
