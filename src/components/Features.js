@@ -65,7 +65,7 @@ export default function Features() {
                     </p>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="grid lg:grid-cols-2 md:gap-12 items-center">
                     {/* Image Section */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
@@ -73,7 +73,7 @@ export default function Features() {
                         viewport={{ once: true }}
                         className="order-2 lg:order-1"
                     >
-                        <div className="relative w-full h-[400px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+                        <div className="relative w-full h-[500px] md:h-[800px] rounded-2xl overflow-hidden md:shadow-2xl mt-4 md:mt-0">
                             <Image
                                 src="/2.jpg"
                                 alt="Delivery Features"
@@ -86,7 +86,6 @@ export default function Features() {
                                     objectPosition: 'center',
                                 }}
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                         </div>
                     </motion.div>
 
