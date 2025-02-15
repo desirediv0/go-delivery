@@ -78,7 +78,7 @@ export default function Features() {
                                 src="/2.jpg"
                                 alt="Delivery Features"
                                 fill
-                                className="object-contain md:object-cover w-full h-full"
+                                className="object-contain md:object-cover w-full h-full rounded-xl"
                                 quality={100}
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 priority
