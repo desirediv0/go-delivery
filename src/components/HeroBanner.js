@@ -26,14 +26,14 @@ export default function HeroBanner() {
   };
 
   return (
-    <div className="relative w-full h-[75vh] md:h-screen overflow-hidden">
+    <div className="relative w-full h-[90vh] md:h-screen overflow-hidden">
       {/* Background Container */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-black/20 z-10" />
         {/* Desktop Image */}
         <div className="hidden md:block">
           <Image
-            src="/4.jpg"
+            src="/bg-large.jpg"
             fill
             className='w-full h-full object-center'
             alt="Banner background"
@@ -43,7 +43,7 @@ export default function HeroBanner() {
         {/* Mobile Image */}
         <div className="block md:hidden h-full">
           <Image
-            src="/1.jpg"
+            src="/bg-small.jpg"
             fill
             sizes="100vw"
             className="object-center"
