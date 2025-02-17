@@ -33,7 +33,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-50 pt-20 pb-10">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16"
           variants={containerVariants}
           initial="hidden"
@@ -81,14 +81,14 @@ export default function Footer() {
           </motion.div>
           <motion.div variants={itemVariants}>
             <h3 className="text-xl font-bold text-gray-900 mb-4">Discover</h3>
-            <div className='grid grid-cols-2 gap-2 pb-3 md:pb-5'>
+            {/* <div className='grid grid-cols-2 gap-2 pb-3 md:pb-5'>
               <div>
                 <Image src="/google-playstore.png" width={150} height={60} alt='google play store'></Image>
               </div>
               <div>
                 <Image src="/applestore.png" width={150} height={60} alt='google play store'></Image>
               </div>
-            </div>
+            </div> */}
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
@@ -107,7 +107,7 @@ export default function Footer() {
             </div>
           </motion.div>
         </motion.div>
-        <motion.div 
+        <motion.div
           className="border-t border-gray-200 pt-8"
           variants={itemVariants}
         >

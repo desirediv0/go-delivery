@@ -133,7 +133,7 @@ export default function HeroSection() {
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            {/* <div className="flex flex-wrap gap-4 pt-4">
               <Link
                 href="https://play.google.com/store"
                 target="_blank"
@@ -162,7 +162,7 @@ export default function HeroSection() {
                   className="h-[53px] w-auto"
                 />
               </Link>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>
