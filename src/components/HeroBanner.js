@@ -1,24 +1,24 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 
 export default function HeroBanner() {
-  const [particles, setParticles] = useState([]);
+  // const [particles, setParticles] = useState([]);
 
-  useEffect(() => {
-    const generateParticles = () => {
-      return [...Array(20)].map(() => ({
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        nextX: Math.random() * 100,
-        nextY: Math.random() * 100
-      }));
-    };
+  // useEffect(() => {
+  //   const generateParticles = () => {
+  //     return [...Array(20)].map(() => ({
+  //       x: Math.random() * 100,
+  //       y: Math.random() * 100,
+  //       nextX: Math.random() * 100,
+  //       nextY: Math.random() * 100
+  //     }));
+  //   };
 
-    setParticles(generateParticles());
-  }, []);
+  //   setParticles(generateParticles());
+  // }, []);
 
   const scrollToNext = () => {
     const aboutSection = document.getElementById('hero');
@@ -55,7 +55,7 @@ export default function HeroBanner() {
       </div>
 
       {/* Animated Particles */}
-      <div className="absolute inset-0 z-20">
+      {/* <div className="absolute inset-0 z-20">
         {particles.map((particle, i) => (
           <motion.div
             key={i}
@@ -77,7 +77,7 @@ export default function HeroBanner() {
             }}
           />
         ))}
-      </div>
+      </div> */}
 
       {/* Content */}
       {/* <div className="relative z-30 h-full flex flex-col items-center justify-center px-4">
