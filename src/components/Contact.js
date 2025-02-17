@@ -71,16 +71,16 @@ export default function Contact() {
                       <p className="text-gray-600 font-medium">Email</p>
                       <div className="space-y-1">
                         <a
-                          href="mailto:support@godelivery.com"
+                          href="mailto:support@godeliverygroup.com"
                           className="block text-gray-900 hover:text-cyan-600 transition-colors"
                         >
-                          Support@godelivery.com
+                          Support@godeliverygroup.com
                         </a>
                         <a
-                          href="mailto:management@godelivery.com"
+                          href="mailto:management@godeliverygroup.com"
                           className="block text-gray-900 hover:text-cyan-600 transition-colors"
                         >
-                          Management@godelivery.com
+                          Management@godeliverygroup.com
                         </a>
                       </div>
                     </div>
