@@ -25,6 +25,13 @@ export default function HeroSection() {
     },
   ]
 
+  const downloadSteps = [
+    "1. Visit your device's app store",
+    "2. Search for 'Go Delivery'",
+    "3. Click Install/Download",
+    "4. Open and start delivering!"
+  ]
+
   return (
     <section
       id="hero"
@@ -38,12 +45,13 @@ export default function HeroSection() {
 
       <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="flex items-center justify-center w-full">
+          <div className="flex flex-col items-center justify-center w-full space-y-8">
+            {/* Phone Animation */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="relative  w-full max-w-[300px] mx-auto"
+              className="relative w-full max-w-[300px] mx-auto"
             >
               <div className="relative aspect-[1/2]">
                 {/* Glowing effect behind phone */}
@@ -62,12 +70,12 @@ export default function HeroSection() {
                   className="absolute inset-0 flex items-center justify-center"
                 >
                   {/* <Image
-                          src="/phone.png"
-                          alt="Go Delivery App Interface"
-                          fill
-                          className="object-contain z-10"
-                          priority
-                        /> */}
+                    src="/phone.png"
+                    alt="Go Delivery App Interface"
+                    fill
+                    className="object-cover z-10"
+                    priority
+                  /> */}
                 </motion.div>
 
                 {/* Animated rings */}
@@ -78,8 +86,75 @@ export default function HeroSection() {
                 </div>
               </div>
             </motion.div>
+
+            {/* Download Instructions */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-center space-y-6 w-full max-w-md"
+            >
+              <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+                How to Download
+              </h3>
+
+              {/* Download Steps */}
+              <div className="space-y-4">
+                {downloadSteps.map((step, index) => (
+                  <motion.div
+                    key={step}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 * index }}
+                    className="flex items-center gap-3 text-gray-300"
+                  >
+                    <span className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 flex items-center justify-center border border-cyan-500/30">
+                      {index + 1}
+                    </span>
+                    <span>{step}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Store Badges */}
+              <div className="pt-6 space-y-4">
+                <p className="text-lg text-gray-300">Available soon on:</p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <div className="flex items-center gap-3 px-4 py-2 rounded-lg bg-gradient-to-r from-gray-900/50 to-gray-800/50 border border-gray-800/50">
+                    <Image
+                      src="/google-play.svg"
+                      alt="Google Play"
+                      width={24}
+                      height={24}
+
+                    />
+                    <span className="text-gray-400">Google Play Store</span>
+                  </div>
+                  <div className="flex items-center gap-3 px-4 py-2 rounded-lg bg-gradient-to-r from-gray-900/50 to-gray-800/50 border border-gray-800/50">
+                    <Image
+                      src="/app-store.svg"
+                      alt="App Store"
+                      width={24}
+                      height={24}
+
+                    />
+                    <span className="text-gray-400">Apple App Store</span>
+                  </div>
+                </div>
+
+                {/* Coming Soon Badge */}
+                <motion.div
+                  animate={{ opacity: [1, 0.5, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30"
+                >
+                  <span className="text-cyan-400 font-semibold">Coming Soon</span>
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
 
+          {/* Right Column Content */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -132,41 +207,9 @@ export default function HeroSection() {
                 </motion.div>
               ))}
             </div>
-
-            {/* <div className="flex flex-wrap gap-4 pt-4">
-              <Link
-                href="https://play.google.com/store"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transform hover:scale-105 transition-transform duration-300"
-              >
-                <Image
-                  src="/google-playstore.png"
-                  alt="Get it on Google Play"
-                  width={180}
-                  height={53}
-                  className="h-[53px] w-auto"
-                />
-              </Link>
-              <Link
-                href="https://apps.apple.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transform hover:scale-105 transition-transform duration-300"
-              >
-                <Image
-                  src="/applestore.png"
-                  alt="Download on the App Store"
-                  width={180}
-                  height={53}
-                  className="h-[53px] w-auto"
-                />
-              </Link>
-            </div> */}
           </motion.div>
         </div>
       </div>
     </section>
   )
 }
-
