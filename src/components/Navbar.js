@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 const navItems = [
   { path: '/', label: 'Home' },
-  { path: '/about', label: 'About'},
+  { path: '/about', label: 'About' },
   { path: '/contact', label: 'Contact' },
   { path: '/help', label: 'Help' },
   { path: '/join-us', label: 'Join Us' },
@@ -32,6 +32,23 @@ const navItemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
 };
 
+
+const ComingSoonButton = ({ isScrolled }) => (
+  <motion.div
+    className={`px-6 py-2 rounded-full ${isScrolled ? 'bg-[#5cdee2]/50 text-slate-800' : 'bg-white/10 text-white'
+      } font-medium flex items-center gap-2 cursor-pointer`}
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    onClick={() => alert('Our app is coming soon!')}
+  >
+    <Download className="w-5 h-5" />
+    <span className="relative">
+      Coming Soon
+
+    </span>
+  </motion.div>
+);
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,7 +58,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     const userAgent = window.navigator.userAgent.toLowerCase();
-    
+
     if (/android/.test(userAgent)) setStoreUrl(storeLinks.android);
     else if (/iphone|ipad|ipod/.test(userAgent)) setStoreUrl(storeLinks.ios);
     else if (/macintosh/.test(userAgent)) setStoreUrl(storeLinks.mac);
@@ -56,23 +73,22 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100 }}
-        className={`fixed w-full z-50 transition-all duration-500 ${
-          isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
-        }`}
+        className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
+          }`}
       >
         <div className="container max-w-screen-xl mx-auto px-4 py-2">
           <div className="flex items-center justify-between h-20">
             {/* Logo - Left Aligned */}
-            <motion.div 
-              variants={logoVariants} 
-              initial="hidden" 
+            <motion.div
+              variants={logoVariants}
+              initial="hidden"
               animate="visible"
               className="flex-shrink-0"
             >
               <Link href="/" className="flex items-center space-x-2">
-                {isScrolled ? 
-                  <Image src="/logo-new.png" width={110} height={60} alt='logo'/> : 
-                  <Image src="/logo-white.png" width={110} height={60} alt='logo'/>
+                {isScrolled ?
+                  <Image src="/logo-new.png" width={110} height={60} alt='logo' /> :
+                  <Image src="/logo-white.png" width={110} height={60} alt='logo' />
                 }
               </Link>
             </motion.div>
@@ -82,9 +98,8 @@ export default function Navbar() {
               {navItems.map((item) => (
                 <Link key={item.path} href={item.path}>
                   <motion.div
-                    className={`px-4 py-2 rounded-full relative ${
-                      isScrolled ? 'text-gray-800' : 'text-white'
-                    } hover:text-[#5cdee2] transition-colors`}
+                    className={`px-4 py-2 rounded-full relative ${isScrolled ? 'text-gray-800' : 'text-white'
+                      } hover:text-[#5cdee2] transition-colors`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -100,36 +115,47 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              <motion.a
+              <ComingSoonButton isScrolled={isScrolled} />
+
+              {/* <motion.a
                 href={storeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`px-6 py-2 rounded-full ${
-                  isScrolled ? 'bg-[#5cdee2] text-slate-800' : 'bg-white text-slate-800'
-                } font-medium hover:opacity-90 transition-all flex items-center gap-2`}
+                className={`px-6 py-2 rounded-full ${isScrolled ? 'bg-[#5cdee2] text-slate-800' : 'bg-white text-slate-800'
+                  } font-medium hover:opacity-90 transition-all flex items-center gap-2`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Download className="w-5 h-5" />
                 Download App
-              </motion.a>
+              </motion.a> */}
             </div>
 
             {/* Mobile Controls - Right Aligned */}
             <div className="flex md:hidden items-center gap-4">
-              <motion.a
+              {/* <motion.a
                 href={storeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`px-4 py-2 rounded-full ${
-                  isScrolled ? 'bg-[#5cdee2] text-slate-800' : 'bg-white text-slate-800'
-                } font-medium hover:opacity-90 transition-all flex items-center gap-2`}
+                className={`px-4 py-2 rounded-full ${isScrolled ? 'bg-[#5cdee2] text-slate-800' : 'bg-white text-slate-800'
+                  } font-medium hover:opacity-90 transition-all flex items-center gap-2`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Download className="w-5 h-5" />
                 <span className="text-sm">Download</span>
-              </motion.a>
+              </motion.a> */}
+
+              <motion.div
+                className={`px-4 py-2 rounded-full ${isScrolled ? 'bg-[#5cdee2]/50 text-slate-800' : 'bg-white/10 text-white'
+                  } font-medium flex items-center gap-2 cursor-pointer`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => alert('Our app is coming soon!')}
+              >
+                <Download className="w-5 h-5" />
+                <span className="text-sm">Coming Soon</span>
+              </motion.div>
 
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -137,8 +163,8 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="p-2 rounded-full hover:bg-gray-100/20"
               >
-                {isMobileMenuOpen ? 
-                  <X color='#000' className={`w-6 h-6 ${isScrolled ? 'text-gray-900' : 'text-white'}`} /> : 
+                {isMobileMenuOpen ?
+                  <X color='#000' className={`w-6 h-6 ${isScrolled ? 'text-gray-900' : 'text-white'}`} /> :
                   <Menu className={`w-6 h-6 ${isScrolled ? 'text-gray-900' : 'text-white'}`} />
                 }
               </motion.button>
@@ -171,11 +197,10 @@ export default function Navbar() {
                     <Link
                       href={item.path}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`flex items-center space-x-4 p-4 rounded-xl ${
-                        pathname === item.path
-                          ? 'bg-[#5cdee2]/10 text-[#5cdee2]'
-                          : 'text-gray-800 hover:bg-gray-50'
-                      }`}
+                      className={`flex items-center space-x-4 p-4 rounded-xl ${pathname === item.path
+                        ? 'bg-[#5cdee2]/10 text-[#5cdee2]'
+                        : 'text-gray-800 hover:bg-gray-50'
+                        }`}
                     >
                       <span className="text-xl font-medium">{item.label}</span>
                       <ChevronRight className="ml-auto w-6 h-6" />
