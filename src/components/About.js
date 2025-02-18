@@ -36,7 +36,7 @@ export default function About() {
             <span className="text-[#5cdee2] block mt-2 text-6xl font-bold mb-8">GoDelivery Rental</span>
 
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Fast. Simple. Reliable. That's GoDelivery Rental.
+              Fast. Simple. Reliable.
             </p>
           </motion.div>
 

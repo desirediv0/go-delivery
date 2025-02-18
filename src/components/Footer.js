@@ -81,14 +81,14 @@ export default function Footer() {
           </motion.div>
           <motion.div variants={itemVariants}>
             <h3 className="text-xl font-bold text-gray-900 mb-4">Discover</h3>
-            {/* <div className='grid grid-cols-2 gap-2 pb-3 md:pb-5'>
+            <div className='grid grid-cols-1 gap-2 pb-3 md:pb-5'>
               <div>
                 <Image src="/google-playstore.png" width={150} height={60} alt='google play store'></Image>
               </div>
-              <div>
+              {/* <div>
                 <Image src="/applestore.png" width={150} height={60} alt='google play store'></Image>
-              </div>
-            </div> */}
+              </div> */}
+            </div>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
