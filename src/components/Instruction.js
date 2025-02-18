@@ -26,7 +26,7 @@ export default function HeroSection() {
   ]
 
   const downloadSteps = [
-    " Visit your device's app store",
+    " Visit your device's play store",
     " Search for 'Go Delivery'",
     " Click Install/Download",
     " Open and start delivering!"
