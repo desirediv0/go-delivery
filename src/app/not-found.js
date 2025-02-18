@@ -2,15 +2,38 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useState, useEffect } from "react"
 import { ArrowLeft, Construction, Wrench, Hammer, Rocket } from "lucide-react"
 
 export default function NotFound() {
+    const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+        const updateDimensions = () => {
+            setDimensions({
+                width: window.innerWidth,
+                height: window.innerHeight
+            });
+        };
+
+        updateDimensions();
+        window.addEventListener('resize', updateDimensions);
+
+        return () => window.removeEventListener('resize', updateDimensions);
+    }, []);
+
     const tools = [
         { icon: <Construction size={24} />, delay: 0 },
         { icon: <Wrench size={24} />, delay: 0.2 },
         { icon: <Hammer size={24} />, delay: 0.4 },
         { icon: <Rocket size={24} />, delay: 0.6 }
     ]
+
+    if (!isMounted) {
+        return null; // or a loading spinner
+    }
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 flex items-center justify-center p-4 relative overflow-hidden">
@@ -21,8 +44,8 @@ export default function NotFound() {
                         key={i}
                         className="absolute w-2 h-2 bg-cyan-500/20 rounded-full"
                         initial={{
-                            x: Math.random() * window.innerWidth,
-                            y: Math.random() * window.innerHeight
+                            x: Math.random() * dimensions.width,
+                            y: Math.random() * dimensions.height
                         }}
                         animate={{
                             y: [0, -20, 0],
