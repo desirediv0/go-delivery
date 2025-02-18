@@ -86,10 +86,10 @@ export default function Navbar() {
               className="flex-shrink-0"
             >
               <Link href="/" className="flex items-center space-x-2">
-                {isScrolled ?
+                {/* {isScrolled ?
                   <Image src="/logo-new.png" width={110} height={60} alt='logo' /> :
-                  <Image src="/logo-white.png" width={110} height={60} alt='logo' />
-                }
+                } */}
+                <Image src="/logo-new.png" width={110} height={60} alt='logo' />
               </Link>
             </motion.div>
 

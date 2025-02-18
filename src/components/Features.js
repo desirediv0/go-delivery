@@ -66,24 +66,26 @@ export default function Features() {
                 </motion.div>
 
                 <div className="grid lg:grid-cols-2 md:gap-12 items-center">
-                    {/* Image Section */}
+
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         className="order-2 lg:order-1"
                     >
-                        <div className="relative w-full h-[500px] md:h-[800px] rounded-2xl overflow-hidden md:shadow-2xl mt-4 md:mt-0">
+                        <div className="relative w-full h-[450px] md:h-[700px] rounded-2xl overflow-hidden md:shadow-2xl mt-4 md:mt-0">
                             <Image
                                 src="/2.jpg"
                                 alt="Delivery Features"
                                 fill
                                 className="object-contain md:object-cover w-full h-full rounded-xl"
                                 quality={100}
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                sizes="100vw"
                                 priority
+                                loading="eager"
                                 style={{
                                     objectPosition: 'center',
+                                    objectFit: 'cover',
                                 }}
                             />
                         </div>
