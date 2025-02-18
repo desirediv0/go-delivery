@@ -26,7 +26,7 @@ export default function HeroBanner() {
   };
 
   return (
-    <div className="relative w-full h-[90vh] md:h-screen overflow-hidden">
+    <div className="relative w-full h-[70vh] md:h-screen overflow-hidden">
       {/* Background Container */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-black/20 z-10" />
@@ -45,8 +45,8 @@ export default function HeroBanner() {
           <Image
             src="/bg-small.jpg"
             fill
-            sizes="100vw"
-            className="object-center"
+            // sizes="100vw"
+            className="object-cover"
             alt="Banner background"
             priority
             quality={100}

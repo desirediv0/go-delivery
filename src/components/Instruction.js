@@ -112,7 +112,7 @@ export default function HeroSection() {
                           />
                           <span className="text-gray-400">Google Play Store</span>
                         </div>
-                        <div className="flex items-center gap-3 px-4 py-2 rounded-lg bg-gradient-to-r from-gray-900/50 to-gray-800/50 border border-gray-800/50">
+                        {/* <div className="flex items-center gap-3 px-4 py-2 rounded-lg bg-gradient-to-r from-gray-900/50 to-gray-800/50 border border-gray-800/50">
                           <Image
                             src="/app-store.svg"
                             alt="App Store"
@@ -121,7 +121,7 @@ export default function HeroSection() {
 
                           />
                           <span className="text-gray-400">Apple App Store</span>
-                        </div>
+                        </div> */}
                       </div>
 
                       {/* Coming Soon Badge */}
