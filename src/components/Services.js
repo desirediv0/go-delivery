@@ -22,12 +22,7 @@ const services = [
     description: "Complete fleet solutions for businesses",
     delay: 0.3,
   },
-  {
-    icon: <MapPin className="w-6 h-6" />,
-    title: "Charging Network",
-    description: "Access to our vast network of charging stations",
-    delay: 0.4,
-  },
+
 ]
 
 export default function Services() {
@@ -54,7 +49,7 @@ export default function Services() {
           <div className="h-1 w-20 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
