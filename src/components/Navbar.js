@@ -78,18 +78,29 @@ export default function Navbar() {
       >
         <div className="container max-w-screen-xl mx-auto px-4 py-2">
           <div className="flex items-center justify-between h-20">
-            {/* Logo - Left Aligned */}
             <motion.div
               variants={logoVariants}
               initial="hidden"
               animate="visible"
+              whileHover={{ scale: 1.05, rotate: [0, -5, 5, 0] }}
+              transition={{ duration: 0.3 }}
               className="flex-shrink-0"
             >
               <Link href="/" className="flex items-center space-x-2">
-                {/* {isScrolled ?
-                  <Image src="/logo-new.png" width={110} height={60} alt='logo' /> :
-                } */}
-                <Image src="/logo-new.png" width={110} height={60} alt='logo' />
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <Image
+                    src="/logo-new.png"
+                    width={110}
+                    height={60}
+                    alt='logo'
+                    className={`transition-all duration-300 ${isScrolled ? 'brightness-90' : 'brightness-100'
+                      } hover:drop-shadow-[0_0_10px_rgba(92,222,226,0.5)]`}
+                  />
+                </motion.div>
               </Link>
             </motion.div>
 
