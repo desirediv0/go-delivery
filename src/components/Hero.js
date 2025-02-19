@@ -1,11 +1,10 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 
-export default function Hero({heading, banner}) {
+export default function Hero({ heading, banner }) {
   const [particles, setParticles] = useState([]);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
@@ -47,11 +46,11 @@ export default function Hero({heading, banner}) {
   };
 
   return (
-    <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-[50vh]  md:min-h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full">
-        <div className="absolute inset-0 bg-black/70 z-10" />
-        <Image src={banner} fill className='bg-contain' alt="Banner"/>
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <Image src={banner} fill className='bg-contain' alt="Banner" />
       </div>
 
       {/* Animated Particles */}
@@ -89,29 +88,29 @@ export default function Hero({heading, banner}) {
           transition={{ duration: 1 }}
           className="space-y-8"
         >
-          <motion.h1 
-            className="text-6xl md:text-8xl font-bold text-white mb-6"
+          <motion.h1
+            className="text-5xl md:text-8xl font-bold text-white mb-6"
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
             {heading}
-            <motion.span 
+            <motion.span
               className="block text-[#5cdee2] mt-2"
-              animate={{ 
+              animate={{
                 textShadow: ["0 0 20px #5cdee2", "0 0 0px #5cdee2"],
               }}
-              transition={{ 
+              transition={{
                 duration: 2,
                 repeat: Infinity,
-                repeatType: "reverse" 
+                repeatType: "reverse"
               }}
             >
               Go Delivery
             </motion.span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -126,10 +125,10 @@ export default function Hero({heading, banner}) {
       <motion.button
         onClick={scrollToNext}
         className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-white z-30"
-        animate={{ 
+        animate={{
           y: [0, 10, 0],
         }}
-        transition={{ 
+        transition={{
           duration: 1.5,
           repeat: Infinity,
           ease: "easeInOut"
