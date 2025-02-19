@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 
-export default function Hero({ heading, banner }) {
+export default function Hero({ heading, banner, mobileBanner }) {
   const [particles, setParticles] = useState([]);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
@@ -46,11 +46,13 @@ export default function Hero({ heading, banner }) {
   };
 
   return (
-    <div className="relative min-h-[50vh]  md:min-h-[70vh] flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute inset-0 bg-black/50 z-10" />
-        <Image src={banner} fill className='bg-contain' alt="Banner" />
+
+        <Image src={mobileBanner} fill className='bg-contain md:hidden' alt="Banner" />
+        <Image src={banner} fill className='hidden md:block bg-contain' alt="Banner" />
       </div>
 
       {/* Animated Particles */}

@@ -6,7 +6,7 @@ import React from 'react'
 export default function page() {
   return (
     <>
-      <Hero heading="About" banner="/img2.jpg" />
+      <Hero heading="About" banner="/img2.jpg" mobileBanner="/img2.jpg" />
       <About />
     </>
   )
