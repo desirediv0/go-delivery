@@ -3,7 +3,6 @@
 import { motion } from "framer-motion"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import { useState } from "react"
-// import type React from "react" // Added import for React
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
