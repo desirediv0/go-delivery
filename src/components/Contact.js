@@ -8,13 +8,39 @@ import { useState } from "react"
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault()
-  //   setIsSubmitting(true)
-  //   // Simulate form submission
-  //   await new Promise((resolve) => setTimeout(resolve, 1500))
-  //   setIsSubmitting(false)
-  // }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const formData = {
+        name: e.target.name.value,
+        email: e.target.email.value,
+        subject: e.target.subject.value,
+        message: e.target.message.value,
+      };
+
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully!');
+        e.target.reset();
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-cyan-50 to-white py-24">
@@ -163,7 +189,7 @@ export default function Contact() {
 
               {/* Form content */}
               <form
-                // onSubmit={handleSubmit}
+                onSubmit={handleSubmit}
                 className="relative h-full p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200 shadow-lg"
               >
                 <div className="grid md:grid-cols-2 gap-6">
