@@ -29,7 +29,7 @@ export default function HeroBanner() {
         <div className="block lg:hidden h-full w-full">
           <video
             src="/mobile.mp4"
-            className="w-full h-full object-cover"
+            className="w-full object-contain"
             autoPlay
             muted
             loop
