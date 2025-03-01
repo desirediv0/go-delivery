@@ -33,10 +33,9 @@ const navItemVariants = {
 };
 
 
-const ComingSoonButton = ({ isScrolled }) => (
+const ComingSoonButton = () => (
   <motion.div
-    className={`px-6 py-2 rounded-full ${isScrolled ? 'bg-[#5cdee2]/50 text-slate-800' : 'bg-white/10 text-white'
-      } font-medium flex items-center gap-2 cursor-pointer`}
+    className={`px-6 py-2 rounded-full  bg-[#5cdee2]/50 text-slate-800 font-medium flex items-center gap-2 cursor-pointer`}
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
     onClick={() => alert('Our app is coming soon!')}
@@ -73,7 +72,7 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100 }}
-        className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
+        className={`sticky top-0 bg-white w-full z-50 transition-all backdrop-blur-lg shadow-md duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-lg' : 'bg-white backdrop-blur-none shadow-none'
           }`}
       >
         <div className="container max-w-screen-xl mx-auto px-4 py-2">
@@ -109,8 +108,7 @@ export default function Navbar() {
               {navItems.map((item) => (
                 <Link key={item.path} href={item.path}>
                   <motion.div
-                    className={`px-4 py-2 rounded-full relative ${isScrolled ? 'text-gray-800' : 'text-white'
-                      } hover:text-[#5cdee2] transition-colors`}
+                    className={`px-4 py-2 rounded-full relative text-gray-800 hover:text-[#5cdee2] transition-colors`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -158,8 +156,7 @@ export default function Navbar() {
               </motion.a> */}
 
               <motion.div
-                className={`px-4 py-2 rounded-full ${isScrolled ? 'bg-[#5cdee2]/50 text-slate-800' : 'bg-white/10 text-white'
-                  } font-medium flex items-center gap-2 cursor-pointer`}
+                className={`px-4 py-2 rounded-full bg-[#5cdee2]/50 text-slate-800 font-medium flex items-center gap-2 cursor-pointer`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => alert('Our app is coming soon!')}
@@ -175,8 +172,8 @@ export default function Navbar() {
                 className="p-2 rounded-full hover:bg-gray-100/20"
               >
                 {isMobileMenuOpen ?
-                  <X color='#000' className={`w-6 h-6 ${isScrolled ? 'text-gray-900' : 'text-white'}`} /> :
-                  <Menu className={`w-6 h-6 ${isScrolled ? 'text-gray-900' : 'text-white'}`} />
+                  <X color='#000' className={`w-6 h-6 text-gray-900`} /> :
+                  <Menu className={`w-6 h-6 text-gray-900`} />
                 }
               </motion.button>
             </div>
