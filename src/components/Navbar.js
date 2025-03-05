@@ -11,8 +11,8 @@ const navItems = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
   { path: '/contact', label: 'Contact' },
-  { path: '/help', label: 'Help' },
-  { path: '/join-us', label: 'Join Us' },
+  // { path: '/help', label: 'Help' },
+  // { path: '/join-us', label: 'Join Us' },
 ];
 
 const storeLinks = {

@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const socialLinks = [
   { icon: Facebook, href: 'https://www.facebook.com/share/1APbN9TUFJ/' },
@@ -41,7 +42,7 @@ export default function Footer() {
           viewport={{ once: true }}
         >
           <motion.div variants={itemVariants}>
-            {/* <h3 className="text-xl font-bold text-gray-900 mb-4">About Us</h3> */}
+            <h3 className="text-xl font-bold text-gray-900 mb-4">About Us</h3>
             <Image src="/logo-new.png" width={160} height={60} alt='logo'></Image>
             <p className="text-gray-600 pt-3">
               Leading the charge in sustainable mobility solutions for a cleaner, greener future.
@@ -50,15 +51,25 @@ export default function Footer() {
           <motion.div variants={itemVariants}>
             <h3 className="text-xl font-bold text-gray-900 mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {['Home', 'About', 'Services', 'Contact'].map((item) => (
+              {[{
+                name: 'Home',
+                link: '/'
+              }, {
+                name: 'About Us',
+                link: '/about'
+              }, {
+                name: 'Contact',
+                link: '/contact'
+              }].map((item) => (
                 <li key={item}>
-                  <motion.a
-                    whileHover={{ x: 5 }}
-                    href="#"
-                    className="text-gray-600 hover:text-blue-600 transition-colors"
-                  >
-                    {item}
-                  </motion.a>
+                  <Link href={item.link} >
+                    <motion.span
+                      whileHover={{ x: 5 }}
+                      className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+                    >
+                      {item.name}
+                    </motion.span>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -66,17 +77,26 @@ export default function Footer() {
           <motion.div variants={itemVariants}>
             <h3 className="text-xl font-bold text-gray-900 mb-4">Support</h3>
             <ul className="space-y-2">
-              {['FAQ', 'Privacy Policy', 'Terms of Service', 'Contact Support'].map((item) => (
-                <li key={item}>
-                  <motion.a
+              <li>
+                <Link href="/privacy-policy">
+                  <motion.span
                     whileHover={{ x: 5 }}
-                    href="#"
-                    className="text-gray-600 hover:text-blue-600 transition-colors"
+                    className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
                   >
-                    {item}
-                  </motion.a>
-                </li>
-              ))}
+                    Privacy Policy
+                  </motion.span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-of-conditions">
+                  <motion.span
+                    whileHover={{ x: 5 }}
+                    className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
+                  >
+                    Terms of Conditions
+                  </motion.span>
+                </Link>
+              </li>
             </ul>
           </motion.div>
           <motion.div variants={itemVariants}>
@@ -85,9 +105,7 @@ export default function Footer() {
               <div>
                 <Image src="/google-playstore.png" width={150} height={60} alt='google play store'></Image>
               </div>
-              {/* <div>
-                <Image src="/applestore.png" width={150} height={60} alt='google play store'></Image>
-              </div> */}
+
             </div>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => {
