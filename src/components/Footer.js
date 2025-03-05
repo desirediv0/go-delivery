@@ -93,7 +93,7 @@ export default function Footer() {
                     whileHover={{ x: 5 }}
                     className="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer"
                   >
-                    Terms of Conditions
+                    Terms and Conditions
                   </motion.span>
                 </Link>
               </li>
