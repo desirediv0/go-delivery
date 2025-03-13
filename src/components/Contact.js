@@ -154,14 +154,23 @@ export default function Contact() {
                         <p className="text-lg font-semibold text-gray-800">Address</p>
                         <div className="space-y-1 text-gray-600">
                           <div className="flex items-start gap-2">
-
                             <div>
-                              <p>Plot No. 9, Sulahkul Vihar,</p>
-                              <p>Old Palam Road,</p>
-                              <p>New Delhi - 110078</p>
-                              <p className="text-sm text-gray-500 mt-2 italic">
-                                Landmark: Sulahkul Mandir
-                              </p>
+                              <a
+                                href="https://maps.app.goo.gl/SPaLLpRoA4d9UPQp9"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-cyan-600 transition-colors"
+                              >
+                                <p>Plot No. 9, Sulahkul Vihar,</p>
+                                <p>Old Palam Road,</p>
+                                <p>New Delhi - 110078</p>
+                                <p className="text-sm text-gray-500 mt-2 italic">
+                                  Landmark: Sulahkul Mandir
+                                </p>
+                                <p className="text-sm text-cyan-600 mt-1 flex items-center gap-1">
+                                  <MapPin className="w-4 h-4" /> View on Google Maps
+                                </p>
+                              </a>
                             </div>
                           </div>
                         </div>
