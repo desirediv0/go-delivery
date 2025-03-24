@@ -10,14 +10,14 @@ export default function HeroBanner() {
   };
 
   return (
-    <div className="relative w-full h-[73vh] lg:h-[55vh] overflow-hidden">
+    <div className="relative w-full h-[55vh] lg:h-[55vh] overflow-hidden">
       {/* Background Container */}
       <div className="absolute inset-0">
         {/* Desktop Video */}
         <div className="hidden lg:block h-full w-full">
           <Image
-            width={1920}
-            height={1080}
+            width={2000}
+            height={1200}
             src="/Desktop.gif"
             className="w-full  object-cover"
             unoptimized
@@ -26,8 +26,8 @@ export default function HeroBanner() {
         {/* Mobile Video */}
         <div className="block h-full w-full lg:hidden ">
           <Image
-            width={1920}
-            height={1080}
+            width={2000}
+            height={1200}
             src="/mobile.gif"
             className="w-full h-full object-cover"
             unoptimized
