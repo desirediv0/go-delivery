@@ -1,40 +1,36 @@
-'use client'
-import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+"use client";
+import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 export default function HeroBanner() {
-
   const scrollToNext = () => {
-    const aboutSection = document.getElementById('hero');
-    aboutSection?.scrollIntoView({ behavior: 'smooth' });
+    const aboutSection = document.getElementById("hero");
+    aboutSection?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="relative w-full h-[70vh] lg:h-screen overflow-hidden">
+    <div className="relative w-full h-[73vh] lg:h-[55vh] overflow-hidden">
       {/* Background Container */}
       <div className="absolute inset-0">
         {/* Desktop Video */}
         <div className="hidden lg:block h-full w-full">
-          <video
-            src="/desktop.mp4"
-            className="w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
+          <Image
+            width={1920}
+            height={1080}
+            src="/Desktop.gif"
+            className="w-full  object-cover"
+            unoptimized
           />
         </div>
         {/* Mobile Video */}
-        <div className="block lg:hidden h-full w-full">
-          <video
-            src="/mobile.mp4"
-            className="w-full object-contain"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
+        <div className="block h-full w-full lg:hidden ">
+          <Image
+            width={1920}
+            height={1080}
+            src="/mobile.gif"
+            className="w-full h-full object-cover"
+            unoptimized
           />
         </div>
       </div>
@@ -49,7 +45,7 @@ export default function HeroBanner() {
         transition={{
           duration: 1.5,
           repeat: Infinity,
-          ease: "easeInOut"
+          ease: "easeInOut",
         }}
       >
         <ChevronDown className="w-8 h-8 sm:w-12 sm:h-12" />
