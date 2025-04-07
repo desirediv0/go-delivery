@@ -10,13 +10,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 export default function Pricecards() {
   const [open, setOpen] = useState(false);
@@ -28,26 +21,28 @@ export default function Pricecards() {
     plan: "Weekly Plan",
   });
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
     }
-    
+
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Invalid email format";
     }
-    
+
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
     } else if (!/^\d{10}$/.test(formData.phone)) {
       newErrors.phone = "Invalid phone number";
     }
-    
+
     if (!formData.location.trim()) {
       newErrors.location = "Location is required";
     }
@@ -61,26 +56,48 @@ export default function Pricecards() {
     setOpen(true);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
 
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
-    
-    // Reset form data and errors after submission
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      location: "",
-      plan: "Weekly Plan",
-    });
-    setErrors({});
-    setOpen(false);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/send-booking-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitSuccess(true);
+        // Reset form data after successful submission
+        setTimeout(() => {
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            location: "",
+            plan: "Weekly Plan",
+          });
+          setErrors({});
+          setSubmitSuccess(false);
+          setOpen(false);
+        }, 2000);
+      } else {
+        alert("Failed to send booking request. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Failed to send booking request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -113,18 +130,10 @@ export default function Pricecards() {
                 <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
                 <span className="text-gray-700">Unlimited Ride</span>
               </div>
-              {/* <div className="flex items-center">
-                <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
-                <span className="text-gray-700">Unlimited Battery Swap</span>
-              </div> */}
               <div className="flex items-center">
                 <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
                 <span className="text-gray-700">Routine maintenance</span>
               </div>
-              {/* <div className="flex items-center">
-                <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
-                <span className="text-gray-700">Free Servicing</span>
-              </div> */}
               <div className="flex items-center">
                 <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
                 <span className="text-gray-700">Telematics and GPS</span>
@@ -137,12 +146,6 @@ export default function Pricecards() {
                 <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
                 <span className="text-gray-700">No registration required</span>
               </div>
-              {/* <div className="flex items-center">
-                <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
-                <span className="text-gray-700">
-                  Free access to ScootEV club
-                </span>
-              </div> */}
             </div>
 
             <Button
@@ -172,18 +175,10 @@ export default function Pricecards() {
                 <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
                 <span className="text-gray-700">Unlimited Ride</span>
               </div>
-              {/* <div className="flex items-center">
-                <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
-                <span className="text-gray-700">Unlimited Battery Swap</span>
-              </div> */}
               <div className="flex items-center">
                 <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
                 <span className="text-gray-700">Routine maintenance</span>
               </div>
-              {/* <div className="flex items-center">
-                <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
-                <span className="text-gray-700">Free Servicing</span>
-              </div> */}
               <div className="flex items-center">
                 <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
                 <span className="text-gray-700">Telematics and GPS</span>
@@ -196,12 +191,6 @@ export default function Pricecards() {
                 <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
                 <span className="text-gray-700">No registration required</span>
               </div>
-              {/* <div className="flex items-center">
-                <Check className="h-5 w-5 text-[#0891b2] mr-2 flex-shrink-0" />
-                <span className="text-gray-700">
-                  Free access to ScootEV club
-                </span>
-              </div> */}
             </div>
 
             <Button
@@ -222,109 +211,119 @@ export default function Pricecards() {
               Book Your Scooter
             </DialogTitle>
           </DialogHeader>
-          <form onSubmit={handleSubmit} className="grid gap-4 py-4">
-            <div>
-              <Input
-                placeholder="Full Name"
-                className={`bg-white text-black ${
-                  errors.name ? "border-red-500" : ""
-                }`}
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-              />
-              {errors.name && (
-                <span className="text-red-500 text-sm">{errors.name}</span>
-              )}
-            </div>
-
-            <div>
-              <Input
-                placeholder="Email Id"
-                type="email"
-                className={`bg-white text-black ${
-                  errors.email ? "border-red-500" : ""
-                }`}
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-              />
-              {errors.email && (
-                <span className="text-red-500 text-sm">{errors.email}</span>
-              )}
-            </div>
-
-            <div>
-              <div
-                className={`flex items-center border rounded bg-white ${
-                  errors.phone ? "border-red-500" : ""
-                }`}
-              >
-                <div className="px-2 border-r">
-                  <span className="flex items-center">
-                    <img
-                      src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"
-                      alt="India"
-                      className="w-5 h-3 mr-1"
-                    />
-                    +91
-                  </span>
-                </div>
-                <Input
-                  placeholder="Phone Number"
-                  type="tel"
-                  className="border-0 bg-white text-black"
-                  value={formData.phone}
-                  onChange={(e) =>
-                    setFormData({ ...formData, phone: e.target.value })
-                  }
-                />
+          {submitSuccess ? (
+            <div className="py-6 text-center">
+              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Check className="w-8 h-8 text-white" />
               </div>
-              {errors.phone && (
-                <span className="text-red-500 text-sm">{errors.phone}</span>
-              )}
+              <h3 className="text-xl font-medium text-white mb-2">
+                Booking Request Sent!
+              </h3>
+              <p className="text-gray-300">
+                We've received your booking request and will contact you
+                shortly.
+              </p>
             </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="grid gap-4 py-4">
+              <div>
+                <Input
+                  placeholder="Full Name"
+                  className={`bg-white text-black ${errors.name ? "border-red-500" : ""
+                    }`}
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  disabled={isSubmitting}
+                />
+                {errors.name && (
+                  <span className="text-red-500 text-sm">{errors.name}</span>
+                )}
+              </div>
 
-            <div>
-              <Input
-                placeholder="Enter Location"
-                className={`bg-white text-black ${
-                  errors.location ? "border-red-500" : ""
-                }`}
-                value={formData.location}
-                onChange={(e) =>
-                  setFormData({ ...formData, location: e.target.value })
-                }
-              />
-              {errors.location && (
-                <span className="text-red-500 text-sm">{errors.location}</span>
-              )}
-            </div>
+              <div>
+                <Input
+                  placeholder="Email Id"
+                  type="email"
+                  className={`bg-white text-black ${errors.email ? "border-red-500" : ""
+                    }`}
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  disabled={isSubmitting}
+                />
+                {errors.email && (
+                  <span className="text-red-500 text-sm">{errors.email}</span>
+                )}
+              </div>
 
-            {/* <Select
-              value={formData.plan}
-              onValueChange={(value) =>
-                setFormData({ ...formData, plan: value })
-              }
-            >
-              <SelectTrigger className="bg-white text-black">
-                <SelectValue placeholder="Select your plan" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="Weekly Plan">7 days</SelectItem>
-                <SelectItem value="Monthly Plan">14 days</SelectItem>
-              </SelectContent>
-            </Select> */}
+              <div>
+                <div
+                  className={`flex items-center border rounded bg-white ${errors.phone ? "border-red-500" : ""
+                    }`}
+                >
+                  <div className="px-2 border-r">
+                    <span className="flex items-center">
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"
+                        alt="India"
+                        className="w-5 h-3 mr-1"
+                      />
+                      +91
+                    </span>
+                  </div>
+                  <Input
+                    placeholder="Phone Number"
+                    type="tel"
+                    className="border-0 bg-white text-black"
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                    disabled={isSubmitting}
+                  />
+                </div>
+                {errors.phone && (
+                  <span className="text-red-500 text-sm">{errors.phone}</span>
+                )}
+              </div>
 
-            <Button
-              type="submit"
-              className="w-full py-6 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded"
-            >
-              Book Now
-            </Button>
-          </form>
+              <div>
+                <Input
+                  placeholder="Enter Location"
+                  className={`bg-white text-black ${errors.location ? "border-red-500" : ""
+                    }`}
+                  value={formData.location}
+                  onChange={(e) =>
+                    setFormData({ ...formData, location: e.target.value })
+                  }
+                  disabled={isSubmitting}
+                />
+                {errors.location && (
+                  <span className="text-red-500 text-sm">
+                    {errors.location}
+                  </span>
+                )}
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full py-6 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <div className="flex items-center justify-center">
+                    <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin mr-2" />
+                    <span>Submitting...</span>
+                  </div>
+                ) : (
+                  "Book Now"
+                )}
+              </Button>
+            </form>
+          )}
         </DialogContent>
       </Dialog>
     </div>
