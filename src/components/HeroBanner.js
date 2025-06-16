@@ -10,11 +10,12 @@ export default function HeroBanner() {
   };
 
   return (
-    <div className="relative w-full h-[55vh] lg:h-[55vh] overflow-hidden">
+    <div className="relative w-full h-[80vh] lg:h-screen overflow-hidden">
       {/* Background Container */}
       <div className="absolute inset-0">
+      <video src="/banner-video.mp4" autoPlay loop muted className="w-full h-full object-cover object-top" />
         {/* Desktop Video */}
-        <div className="hidden lg:block h-full w-full">
+        {/* <div className="hidden lg:block h-full w-full">
           <Image
             width={2000}
             height={1200}
@@ -22,9 +23,9 @@ export default function HeroBanner() {
             className="w-full  object-cover"
             unoptimized
           />
-        </div>
+        </div> */}
         {/* Mobile Video */}
-        <div className="block h-full w-full lg:hidden ">
+        {/* <div className="block h-full w-full lg:hidden ">
           <Image
             width={2000}
             height={1200}
@@ -32,7 +33,7 @@ export default function HeroBanner() {
             className="w-full h-full object-cover"
             unoptimized
           />
-        </div>
+        </div> */}
       </div>
 
       {/* Scroll Indicator */}
